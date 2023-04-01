@@ -12,7 +12,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname
   },
   root: true,
   plugins: [
@@ -20,6 +21,7 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/key-spacing': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     'react/react-in-jsx-scope': 'off'
   }
