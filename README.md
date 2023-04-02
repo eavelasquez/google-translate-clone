@@ -4,7 +4,7 @@
 
 This is a clone of Google Translate. It is a simple web app that translates text from one language to another. It uses the OpenAI API to do the translation.
 
-Note: This is a project I made to learn about the OpenAI API. It is not meant to be used for anything serious.
+**Note:** This is a project I made to learn about the OpenAI API. It is not meant to be used for anything serious.
 
 ### Preview
 
@@ -15,6 +15,8 @@ Note: This is a project I made to learn about the OpenAI API. It is not meant to
 Run `pnpm install` to install the dependencies. Then run `pnpm run dev` to start the development server.
 
 Set the environment variable `VITE_OPENAI_API_KEY` to your OpenAI API key. You can get one [here](https://platform.openai.com/). See `.env.example` for an example.
+
+This project uses [Node.js](https://nodejs.org/en/) v18.15.0 and [pnpm](https://pnpm.io/) 8.1.0 were used to develop this project. Make sure you have them installed.
 
 ### To Do
 
