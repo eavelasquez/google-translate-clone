@@ -1,9 +1,10 @@
 import { Button, Col, Container, Row } from 'react-bootstrap'
 
-import { useStore } from './hooks/useStore'
-import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { ArrowsIcon } from './components/Icons'
+import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { LanguageSelector } from './components/LanguageSelector'
+import { SectionType } from './types'
+import { useStore } from './hooks/useStore'
 
 function App () {
   const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useStore()
@@ -13,7 +14,7 @@ function App () {
       <h1>Google Translate</h1>
       <Row>
         <Col>
-          <LanguageSelector type='from' value={fromLanguage} onChange={setFromLanguage} />
+          <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
         </Col>
 
         <Col>
@@ -27,7 +28,7 @@ function App () {
         </Col>
 
         <Col>
-          <LanguageSelector type='to' value={toLanguage} onChange={setToLanguage} />
+          <LanguageSelector type={SectionType.To} value={toLanguage} onChange={setToLanguage} />
         </Col>
       </Row>
     </Container>

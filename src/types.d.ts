@@ -26,3 +26,8 @@ export type Action =
   | { type: ActionTypes.SET_TO_LANGUAGE, payload: Language }
   | { type: ActionTypes.SET_TEXT, payload: string }
   | { type: ActionTypes.SET_TRANSLATED_TEXT, payload: string }
+
+export enum SectionType {
+  From = 'from',
+  To = 'to'
+}
