@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 
-import { ActionTypes, type Action, type State, type Language, type FromLanguage } from '../types.d'
+import { ActionType, type Action, type State, type Language, type FromLanguage } from '../types.d'
 import { AUTO_DETECT_LANGUAGE } from '../utils/constants'
 
 const initialState: State = {
@@ -14,7 +14,7 @@ const initialState: State = {
 function reducer (state: State, action: Action) {
   const { type } = action
 
-  if (type === ActionTypes.INTERCHANGE_LANGUAGES) {
+  if (type === ActionType.INTERCHANGE_LANGUAGES) {
     // If the fromLanguage is auto, we don't want to interchange it
     if (state.fromLanguage === AUTO_DETECT_LANGUAGE) return state
 
@@ -25,21 +25,21 @@ function reducer (state: State, action: Action) {
     }
   }
 
-  if (type === ActionTypes.SET_FROM_LANGUAGE) {
+  if (type === ActionType.SET_FROM_LANGUAGE) {
     return {
       ...state,
       fromLanguage: action.payload
     }
   }
 
-  if (type === ActionTypes.SET_TO_LANGUAGE) {
+  if (type === ActionType.SET_TO_LANGUAGE) {
     return {
       ...state,
       toLanguage: action.payload
     }
   }
 
-  if (type === ActionTypes.SET_TEXT) {
+  if (type === ActionType.SET_TEXT) {
     return {
       ...state,
       loading: true,
@@ -48,7 +48,7 @@ function reducer (state: State, action: Action) {
     }
   }
 
-  if (type === ActionTypes.SET_TRANSLATED_TEXT) {
+  if (type === ActionType.SET_TRANSLATED_TEXT) {
     return {
       ...state,
       loading: false,
@@ -64,23 +64,23 @@ export function useStore () {
   const { fromLanguage, toLanguage, text, translatedText, loading } = state
 
   const interchangeLanguages = () => {
-    dispatch({ type: ActionTypes.INTERCHANGE_LANGUAGES })
+    dispatch({ type: ActionType.INTERCHANGE_LANGUAGES })
   }
 
   const setFromLanguage = (fromLanguage: FromLanguage) => {
-    dispatch({ type: ActionTypes.SET_FROM_LANGUAGE, payload: fromLanguage })
+    dispatch({ type: ActionType.SET_FROM_LANGUAGE, payload: fromLanguage })
   }
 
   const setToLanguage = (toLanguage: Language) => {
-    dispatch({ type: ActionTypes.SET_TO_LANGUAGE, payload: toLanguage })
+    dispatch({ type: ActionType.SET_TO_LANGUAGE, payload: toLanguage })
   }
 
   const setText = (text: string) => {
-    dispatch({ type: ActionTypes.SET_TEXT, payload: text })
+    dispatch({ type: ActionType.SET_TEXT, payload: text })
   }
 
   const setTranslatedText = (translatedText: string) => {
-    dispatch({ type: ActionTypes.SET_TRANSLATED_TEXT, payload: translatedText })
+    dispatch({ type: ActionType.SET_TRANSLATED_TEXT, payload: translatedText })
   }
 
   return {
