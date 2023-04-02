@@ -25,6 +25,7 @@ const getPlaceholder = ({ type, loading }: { type: SectionType, loading?: boolea
 export const TextArea: FC<Props> = ({ type, loading, text, onChange }) => {
   const autoFocus = type === SectionType.From
   const className = type === SectionType.From ? 'text-area-from' : 'text-area-to'
+  const disabled = type === SectionType.To
   const placeholder = getPlaceholder({ type, loading })
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -41,6 +42,7 @@ export const TextArea: FC<Props> = ({ type, loading, text, onChange }) => {
       as='textarea'
       autoFocus={autoFocus}
       className={`mt-3 ${className}`}
+      disabled={disabled}
       onChange={handleChange}
       onInput={handleInput}
       placeholder={placeholder}
