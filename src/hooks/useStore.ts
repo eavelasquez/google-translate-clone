@@ -26,16 +26,24 @@ function reducer (state: State, action: Action) {
   }
 
   if (type === ActionType.SET_FROM_LANGUAGE) {
+    if (state.fromLanguage === action.payload) return state
+
     return {
       ...state,
-      fromLanguage: action.payload
+      fromLanguage: action.payload,
+      loading: state.text !== '',
+      translatedText: ''
     }
   }
 
   if (type === ActionType.SET_TO_LANGUAGE) {
+    if (state.toLanguage === action.payload) return state
+
     return {
       ...state,
-      toLanguage: action.payload
+      loading: state.text !== '',
+      toLanguage: action.payload,
+      translatedText: ''
     }
   }
 
