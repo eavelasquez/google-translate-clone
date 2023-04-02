@@ -25,7 +25,7 @@ function App () {
     setTranslatedText
   } = useStore()
 
-  const debouncedText = useDebounce(text, 250)
+  const debouncedText = useDebounce(text, 320)
 
   useEffect(() => {
     if (debouncedText === '') return
