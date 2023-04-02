@@ -1,7 +1,7 @@
 import { Button, Col, Container, Overlay, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
 import { useEffect, useRef, useState } from 'react'
 
-import { ArrowsIcon, ClipboardIcon, LanguageSelector, SpeakerIcon, TextArea } from './components'
+import { ArrowsIcon, ClearIcon, ClipboardIcon, LanguageSelector, SpeakerIcon, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE, VOICE_LANGUAGES } from './utils/constants'
 import { SectionType } from './types.d'
 import { translate } from './services/translate'
@@ -40,6 +40,11 @@ function App () {
       })
   }, [fromLanguage, toLanguage, debouncedText])
 
+  const handleClearClick = () => {
+    setText('')
+    setTranslatedText('')
+  }
+
   const handleShowClipboardTooltip = () => {
     setShowClipboardTooltip(false)
   }
@@ -64,12 +69,30 @@ function App () {
       </h1>
       <Row>
         <Col xs={12} md={5}>
-          <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
-          <TextArea
+          <LanguageSelector
             type={SectionType.From}
-            text={text}
-            onChange={setText}
+            value={fromLanguage}
+            onChange={setFromLanguage}
           />
+
+          <div className='textarea-icon-buttons'>
+            <TextArea
+              type={SectionType.From}
+              text={text}
+              onChange={setText}
+            />
+
+            <div className='textarea-clear-button'>
+              <Button
+                variant='link'
+                onClick={handleClearClick}
+                disabled={text === ''}
+                hidden={text === ''}
+              >
+                <ClearIcon />
+              </Button>
+            </div>
+          </div>
         </Col>
 
         <Col xs={12} md={2} className='px-0'>
@@ -83,7 +106,11 @@ function App () {
         </Col>
 
         <Col xs={12} md={5}>
-          <LanguageSelector type={SectionType.To} value={toLanguage} onChange={setToLanguage} />
+          <LanguageSelector
+            type={SectionType.To}
+            value={toLanguage}
+            onChange={setToLanguage}
+          />
 
           <div className='textarea-icon-buttons'>
             <TextArea

@@ -60,7 +60,6 @@ h1 {
 }
 
 .textarea-icon-buttons-to {
-  display: flex;
   bottom: 0;
   left: 0;
   padding: 10px 0;
@@ -73,4 +72,10 @@ h1 {
 
 .textarea-icon-buttons-to button svg {
   fill: #70757a;
+}
+
+.textarea-clear-button {
+  right: 0;
+  top: 0;
+  position: absolute;
 }
