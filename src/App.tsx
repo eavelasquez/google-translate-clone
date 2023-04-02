@@ -1,8 +1,7 @@
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
-import { ArrowsIcon } from './components/Icons'
+import { ArrowsIcon, LanguageSelector } from './components'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
-import { LanguageSelector } from './components/LanguageSelector'
 import { SectionType } from './types.d'
 import { useStore } from './hooks/useStore'
 
