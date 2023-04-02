@@ -24,7 +24,7 @@ const getPlaceholder = ({ type, loading }: { type: SectionType, loading?: boolea
 
 export const TextArea: FC<Props> = ({ type, loading, text, onChange }) => {
   const autoFocus = type === SectionType.From
-  const className = type === SectionType.From ? 'text-area-from' : 'text-area-to'
+  const className = type === SectionType.From ? 'textarea-from' : 'textarea-to'
   const disabled = type === SectionType.To
   const placeholder = getPlaceholder({ type, loading })
 

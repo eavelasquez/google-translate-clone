@@ -30,16 +30,6 @@ h1 {
   line-height: 1.1;
 }
 
-.text-area-from {
-  border: 0;
-}
-
-.text-area-to {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 0;
-}
-
 .google-translate-icon {
   content: url(https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg);
   width: 3.2em;
@@ -55,17 +45,32 @@ h1 {
   font-family: "Product Sans", Arial, sans-serif;
 }
 
-.clipboard-icon {
+.textarea-from {
+  border: 0;
+}
+
+.textarea-to {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 0;
+}
+
+.textarea-icon-buttons {
   position: relative;
 }
 
-.clipboard-icon button {
+.textarea-icon-buttons-to {
+  display: flex;
   bottom: 0;
   left: 0;
-  padding: 10px;
+  padding: 10px 0;
   position: absolute;
 }
 
-.clipboard-icon button svg {
+.textarea-icon-buttons-to button {
+  padding: 0 10px;
+}
+
+.textarea-icon-buttons-to button svg {
   fill: #70757a;
 }
