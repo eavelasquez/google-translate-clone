@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 import { ArrowsIcon } from './components/Icons'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { LanguageSelector } from './components/LanguageSelector'
-import { SectionType } from './types'
+import { SectionType } from './types.d'
 import { useStore } from './hooks/useStore'
 
 function App () {

@@ -2,7 +2,7 @@ import { Form } from 'react-bootstrap'
 import { type ChangeEvent, type FC } from 'react'
 
 import { AUTO_DETECT_LANGUAGE, SUPPORTED_LANGUAGES } from '../utils/constants'
-import { SectionType, type FromLanguage, type Language } from '../types'
+import { SectionType, type FromLanguage, type Language } from '../types.d'
 
 type Props =
   | { type: SectionType.From, value: FromLanguage, onChange: (language: FromLanguage) => void }
