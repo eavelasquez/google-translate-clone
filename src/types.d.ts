@@ -5,8 +5,8 @@ export type Auto_Language = typeof AUTO_DETECT_LANGUAGE
 export type FromLanguage = Language | Auto_Language
 
 export interface State {
-  fromLanguage: string
-  toLanguage: string
+  fromLanguage: FromLanguage
+  toLanguage: Language
   text: string
   translatedText: string
   loading: boolean
@@ -22,7 +22,7 @@ export enum ActionTypes {
 
 export type Action =
   | { type: ActionTypes.INTERCHANGE_LANGUAGES }
-  | { type: ActionTypes.SET_FROM_LANGUAGE, payload: string }
-  | { type: ActionTypes.SET_TO_LANGUAGE, payload: string }
+  | { type: ActionTypes.SET_FROM_LANGUAGE, payload: FromLanguage }
+  | { type: ActionTypes.SET_TO_LANGUAGE, payload: Language }
   | { type: ActionTypes.SET_TEXT, payload: string }
   | { type: ActionTypes.SET_TRANSLATED_TEXT, payload: string }
