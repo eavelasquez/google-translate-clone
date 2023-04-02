@@ -13,11 +13,11 @@ function App () {
     <Container fluid>
       <h1>Google Translate</h1>
       <Row>
-        <Col>
+        <Col xs={12} md={5}>
           <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
         </Col>
 
-        <Col>
+        <Col xs={12} md={2}>
           <Button
             variant='link'
             onClick={interchangeLanguages}
@@ -27,7 +27,7 @@ function App () {
           </Button>
         </Col>
 
-        <Col>
+        <Col xs={12} md={5}>
           <LanguageSelector type={SectionType.To} value={toLanguage} onChange={setToLanguage} />
         </Col>
       </Row>
