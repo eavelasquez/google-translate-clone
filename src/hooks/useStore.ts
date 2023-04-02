@@ -21,6 +21,8 @@ function reducer (state: State, action: Action) {
     return {
       ...state,
       fromLanguage: state.toLanguage,
+      loading: state.text !== '',
+      translatedText: '',
       toLanguage: state.fromLanguage
     }
   }
