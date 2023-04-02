@@ -35,7 +35,7 @@ function App () {
           />
         </Col>
 
-        <Col xs={12} md={2}>
+        <Col xs={12} md={2} className='px-0'>
           <Button
             variant='link'
             onClick={interchangeLanguages}
