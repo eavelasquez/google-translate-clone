@@ -50,7 +50,7 @@ function reducer (state: State, action: Action) {
   if (type === ActionType.SET_TEXT) {
     return {
       ...state,
-      loading: true,
+      loading: action.payload !== '',
       text: action.payload,
       translatedText: ''
     }
