@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { ArrowsIcon, ClearIcon, ClipboardIcon, LanguageSelector, SpeakerIcon, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE, VOICE_LANGUAGES } from './utils/constants'
-import { SectionType } from './types.d'
+import { SectionType, type Language } from './types.d'
 import { translate } from './services/translate'
 import { useDebounce, useStore } from './hooks'
 
@@ -54,9 +54,9 @@ function App () {
     void navigator.clipboard.writeText(translatedText)
   }
 
-  const handleSpeakerClick = () => {
+  const handleSpeakerClick = ({ language }: { language: Language }) => {
     const utterance = new SpeechSynthesisUtterance(translatedText)
-    utterance.lang = VOICE_LANGUAGES[toLanguage]
+    utterance.lang = VOICE_LANGUAGES[language]
     utterance.rate = 0.8
     speechSynthesis.speak(utterance)
   }
@@ -91,6 +91,32 @@ function App () {
               >
                 <ClearIcon />
               </Button>
+            </div>
+
+            <div className='textarea-icon-buttons-from'>
+              <OverlayTrigger
+                key={'right'}
+                placement={'right'}
+                overlay={
+                  <Tooltip id={'tooltip-right'}>
+                    Listen to the text
+                  </Tooltip>
+                }
+                rootClose={true}
+                transition={false}
+              >
+                <Button
+                  ref={targetSpeaker}
+                  variant='link'
+                  hidden={text === '' || loading || fromLanguage === AUTO_DETECT_LANGUAGE}
+                  onClick={() => {
+                    if (fromLanguage === AUTO_DETECT_LANGUAGE) return
+                    handleSpeakerClick({ language: fromLanguage })
+                  }}
+                >
+                  <SpeakerIcon />
+                </Button>
+              </OverlayTrigger>
             </div>
           </div>
         </Col>
@@ -131,6 +157,7 @@ function App () {
                     </Tooltip>
                   }
                   rootClose={true}
+                  transition={false}
                 >
                   <Button
                     ref={targetClipboard}
@@ -148,6 +175,7 @@ function App () {
                   placement='bottom'
                   rootClose={true}
                   onHide={handleShowClipboardTooltip}
+                  transition={false}
                 >
                   {(props) => (
                     <Tooltip id='overlay-cliboard' {...props}>
@@ -167,12 +195,15 @@ function App () {
                     </Tooltip>
                   }
                   rootClose={true}
+                  transition={false}
                 >
                   <Button
                     ref={targetSpeaker}
                     variant='link'
                     hidden={text === '' || loading}
-                    onClick={handleSpeakerClick}
+                    onClick={() => {
+                      handleSpeakerClick({ language: toLanguage })
+                    }}
                   >
                     <SpeakerIcon />
                   </Button>

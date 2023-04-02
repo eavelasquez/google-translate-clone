@@ -30,6 +30,10 @@ h1 {
   line-height: 1.1;
 }
 
+svg {
+  fill: #70757a;
+}
+
 .google-translate-icon {
   content: url(https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg);
   width: 3.2em;
@@ -59,23 +63,30 @@ h1 {
   position: relative;
 }
 
-.textarea-icon-buttons-to {
-  bottom: 0;
-  left: 0;
-  padding: 10px 0;
-  position: absolute;
-}
-
-.textarea-icon-buttons-to button {
-  padding: 0 10px;
-}
-
-.textarea-icon-buttons-to button svg {
-  fill: #70757a;
-}
-
 .textarea-clear-button {
   right: 0;
   top: 0;
   position: absolute;
+}
+
+.textarea-icon-buttons-from {
+  bottom: 0;
+  left: 0;
+  padding: 8px 0;
+  position: absolute;
+}
+
+.textarea-icon-buttons-from button {
+  padding: 0 8px;
+}
+
+.textarea-icon-buttons-to {
+  bottom: 0;
+  left: 0;
+  padding: 8px 0;
+  position: absolute;
+}
+
+.textarea-icon-buttons-to button {
+  padding: 0 8px;
 }
