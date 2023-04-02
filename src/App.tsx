@@ -5,7 +5,7 @@ import { ArrowsIcon, LanguageSelector, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { SectionType } from './types.d'
 import { translate } from './services/translate'
-import { useStore } from './hooks'
+import { useDebounce, useStore } from './hooks'
 
 function App () {
   const {
@@ -21,10 +21,12 @@ function App () {
     setTranslatedText
   } = useStore()
 
-  useEffect(() => {
-    if (text === '') return
+  const debouncedText = useDebounce(text, 250)
 
-    translate({ fromLanguage, toLanguage, text })
+  useEffect(() => {
+    if (debouncedText === '') return
+
+    translate({ fromLanguage, toLanguage, text: debouncedText })
       .then((translatedTextResult) => {
         if (translatedTextResult === null || translatedTextResult === undefined) return
         setTranslatedText(translatedTextResult)
@@ -32,7 +34,7 @@ function App () {
       .catch(() => {
         setTranslatedText('Something went wrong')
       })
-  }, [fromLanguage, toLanguage, text])
+  }, [fromLanguage, toLanguage, debouncedText])
 
   return (
     <Container fluid>
