@@ -2,7 +2,7 @@ import { Button, Col, Container, Overlay, OverlayTrigger, Row, Tooltip } from 'r
 import { useEffect, useRef, useState } from 'react'
 
 import { ArrowsIcon, ClipboardIcon, LanguageSelector, SpeakerIcon, TextArea } from './components'
-import { AUTO_DETECT_LANGUAGE } from './utils/constants'
+import { AUTO_DETECT_LANGUAGE, VOICE_LANGUAGES } from './utils/constants'
 import { SectionType } from './types.d'
 import { translate } from './services/translate'
 import { useDebounce, useStore } from './hooks'
@@ -51,7 +51,8 @@ function App () {
 
   const handleSpeakerClick = () => {
     const utterance = new SpeechSynthesisUtterance(translatedText)
-    utterance.lang = toLanguage
+    utterance.lang = VOICE_LANGUAGES[toLanguage]
+    utterance.rate = 0.8
     speechSynthesis.speak(utterance)
   }
 
