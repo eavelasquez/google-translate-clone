@@ -33,3 +33,13 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+.text-area-from {
+  border: 0;
+}
+
+.text-area-to {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 0;
+}

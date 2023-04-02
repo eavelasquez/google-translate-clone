@@ -1,6 +1,6 @@
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 
-import { ArrowsIcon, LanguageSelector } from './components'
+import { ArrowsIcon, LanguageSelector, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { SectionType } from './types.d'
 import { useStore } from './hooks/useStore'
@@ -11,6 +11,7 @@ function App () {
     toLanguage,
     text,
     translatedText,
+    loading,
     interchangeLanguages,
     setFromLanguage,
     setToLanguage,
@@ -24,15 +25,10 @@ function App () {
       <Row>
         <Col xs={12} md={5}>
           <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
-          <Form.Control
-            as='textarea'
-            className='mt-2'
-            onChange={e => { setText(e.target.value) }}
-            placeholder='Enter text to translate...'
-            rows={6}
-            size='lg'
-            value={text}
-            autoFocus
+          <TextArea
+            type={SectionType.From}
+            text={text}
+            onChange={setText}
           />
         </Col>
 
@@ -48,14 +44,11 @@ function App () {
 
         <Col xs={12} md={5}>
           <LanguageSelector type={SectionType.To} value={toLanguage} onChange={setToLanguage} />
-          <Form.Control
-            as='textarea'
-            className='mt-2'
-            onChange={e => { setTranslatedText(e.target.value) }}
-            placeholder='Translated text...'
-            rows={6}
-            size='lg'
-            value={translatedText}
+          <TextArea
+            type={SectionType.To}
+            loading={loading}
+            text={translatedText}
+            onChange={setTranslatedText}
           />
         </Col>
       </Row>
