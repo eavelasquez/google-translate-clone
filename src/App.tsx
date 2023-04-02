@@ -5,7 +5,7 @@ import { ArrowsIcon, LanguageSelector, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { SectionType } from './types.d'
 import { translate } from './services/translate'
-import { useStore } from './hooks/useStore'
+import { useStore } from './hooks'
 
 function App () {
   const {
