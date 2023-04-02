@@ -54,3 +54,18 @@ h1 {
   font-size: 48px;
   font-family: "Product Sans", Arial, sans-serif;
 }
+
+.clipboard-icon {
+  position: relative;
+}
+
+.clipboard-icon button {
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+}
+
+.clipboard-icon button svg {
+  fill: #70757a;
+}
