@@ -1,8 +1,10 @@
 import { Button, Col, Container, Row } from 'react-bootstrap'
+import { useEffect } from 'react'
 
 import { ArrowsIcon, LanguageSelector, TextArea } from './components'
 import { AUTO_DETECT_LANGUAGE } from './utils/constants'
 import { SectionType } from './types.d'
+import { translate } from './services/translate'
 import { useStore } from './hooks/useStore'
 
 function App () {
@@ -18,6 +20,19 @@ function App () {
     setText,
     setTranslatedText
   } = useStore()
+
+  useEffect(() => {
+    if (text === '') return
+
+    translate({ fromLanguage, toLanguage, text })
+      .then((translatedTextResult) => {
+        if (translatedTextResult === null || translatedTextResult === undefined) return
+        setTranslatedText(translatedTextResult)
+      })
+      .catch(() => {
+        setTranslatedText('Something went wrong')
+      })
+  }, [fromLanguage, toLanguage, text])
 
   return (
     <Container fluid>
