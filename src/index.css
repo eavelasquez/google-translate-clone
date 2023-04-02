@@ -3,10 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -42,4 +38,19 @@ h1 {
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 0;
+}
+
+.google-translate-icon {
+  content: url(https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg);
+  width: 3.2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.google-translate-text {
+  color: #5f6368;
+  opacity: 1;
+  padding-left: 4px;
+  font-size: 48px;
+  font-family: "Product Sans", Arial, sans-serif;
 }

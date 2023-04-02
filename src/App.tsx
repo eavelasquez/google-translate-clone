@@ -21,7 +21,10 @@ function App () {
 
   return (
     <Container fluid>
-      <h1>Google Translate</h1>
+      <h1>
+        <span className='google-translate-icon' />
+        <span className='google-translate-text'>Translate</span>
+      </h1>
       <Row>
         <Col xs={12} md={5}>
           <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
